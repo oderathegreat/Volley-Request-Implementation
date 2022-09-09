@@ -18,8 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-      //calling our method
+        //calling our method
         fetchStringData(url_link)
 
     }
@@ -45,5 +44,8 @@ class MainActivity : AppCompatActivity() {
 
                 }
             })
+
+        //adding our request queue
+        volleyRequest!!.add(stringReq)
     }
 }
