@@ -13,7 +13,7 @@ import org.json.JSONException
 
 class MainActivity : AppCompatActivity() {
 
-    val volleyRequest: RequestQueue? = null
+    var volleyRequest: RequestQueue? = null
     val url_link = "https://jsonplaceholder.typicode.com/users"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
         val stringReq = StringRequest(Request.Method.GET,url, {
                 response:String? ->
             try {
+                //Log our response to our terminal
                  Log.d("Response ", response.toString())
+
             } catch (e:JSONException) {
                 e.printStackTrace()
             }
