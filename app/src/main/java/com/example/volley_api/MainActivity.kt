@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     var volleyRequest: RequestQueue? = null
     val url_link = "https://jsonplaceholder.typicode.com/users"
     val movie_array_url = "http://api.tvmaze.com/search/shows?q=golden%20girls"
-    val obj_url = "https://api.opensea.io/api/v1/assets?format=json"
+    val obj_url = "https://cryptingup.com/api/markets"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,23 +40,33 @@ class MainActivity : AppCompatActivity() {
 
     fun fetchJsonObject(url_link_object:String) {
 
-        val stringRequest = object : StringRequest(Request.Method.GET,"url_link_object";
-        Response.Listener<String> { s ->
-            try {
+         var jsonObjReq = JsonObjectRequest(Request.Method.GET, url_link_object, null, Response.Listener<JSONObject> {
+                          response ->
+             try {
+
+                 var next = response.getString("markets")
+                 Log.d("Response on markets", next.toString() )
+
+             } catch (e: JSONException) {
+                 Log.d("Error-->" , e.toString())
+             }
+         },
+         Response.ErrorListener {
+
+             try {
+
+             } catch (e: JSONException) {
+                 Log.d("Error-->" , e.toString())
+             }
+         })
 
 
-            } catch (e: JSONException) {
-                e.printStackTrace()
-            }
-        }
-        Response.ErrorListener { volleyError -> Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show() }
-
-        volleyRequest!!.add(stringRequest)
-    } }
+        volleyRequest!!.add(jsonObjReq)
+    }
 
 
         //volleyRequest!!.add(jsonobject)
-    }
+
 
 
 
