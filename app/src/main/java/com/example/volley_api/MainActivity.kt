@@ -40,6 +40,19 @@ class MainActivity : AppCompatActivity() {
                 try {
                     Log.d("Response-->" , response.toString())
 
+                    //Now accessing the json object inside our array
+                    // range replaced with until unlike 0..response.length()
+                    for (x in 0 until response.length()) {
+                        //create a variable to loop to our objects
+                        var showObj = response.getJSONObject(x)
+                        var get_score = showObj.getString("score")
+
+                        //Log our object response
+                        Log.d("Show Score", get_score.toString())
+
+                    }
+
+
                 } catch (e:JSONException) {
 
                     e.printStackTrace()
