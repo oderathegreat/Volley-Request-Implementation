@@ -3,21 +3,26 @@ package com.example.volley_api
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONException
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
     var volleyRequest: RequestQueue? = null
     val url_link = "https://jsonplaceholder.typicode.com/users"
     val movie_array_url = "http://api.tvmaze.com/search/shows?q=golden%20girls"
+    val obj_url = "https://api.opensea.io/api/v1/assets?format=json"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +33,34 @@ class MainActivity : AppCompatActivity() {
 
         //calling our method
         //fetchStringData(url_link)
-        fetchJsonArray(movie_array_url)
+        //fetchJsonArray(movie_array_url)
+        fetchJsonObject(obj_url)
 
     }
+
+    fun fetchJsonObject(url_link_object:String) {
+
+        val stringRequest = object : StringRequest(Request.Method.GET,"url_link_object";
+        Response.Listener<String> { s ->
+            try {
+
+
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+        }
+        Response.ErrorListener { volleyError -> Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show() }
+
+        volleyRequest!!.add(stringRequest)
+    } }
+
+
+        //volleyRequest!!.add(jsonobject)
+    }
+
+
+
+
 
     fun fetchJsonArray(Url:String) {
 
