@@ -45,10 +45,23 @@ class MainActivity : AppCompatActivity() {
                     for (x in 0 until response.length()) {
                         //create a variable to loop to our objects
                         var showObj = response.getJSONObject(x)
-                        var get_score = showObj.getString("score")
+                        var get_show = showObj.getString("show")
 
                         //Log our object response
-                        Log.d("Show Score", get_score.toString())
+                        //Log.d("GET Show", get_show.toString())
+
+                        //show name of all movies showing
+//                        var movie_name = showObj.getString("name")
+//                        Log.d(" Show Name" , movie_name.toString())
+
+
+//                        for (i in 0 until get_score.toInt()) {
+//                            var score_obj = response.getJSONObject(i)
+//
+//
+//                        }
+
+
 
                     }
 
