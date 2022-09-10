@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
     val movie_array_url = "http://api.tvmaze.com/search/shows?q=golden%20girls"
     val obj_url = "https://cryptingup.com/api/markets"
 
+    //list of free apis https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
